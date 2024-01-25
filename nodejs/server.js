@@ -1,29 +1,44 @@
 const express = require("express");
 const cors = require("cors"); // Додайте цей рядок
+const bodyParser = require("body-parser");
 
 const app = express();
 const PORT = process.env.PORT || 4200;
 
+app.use(bodyParser.json());
 app.use(cors()); // Додайте цей рядок
 
-// Ваші інші реєстрації маршрутів після цього
-app.get("/", (req, res) => {
-  res.send("Hello, this is your Node.js server!");
-});
-app.post("/api/login", (req, res) => {
-  // Змініть об'єкт на власний JSON об'єкт з потрібними даними
-  const responseData = {
+const users = {
+  "admin@deepersignals.com": {
     first_name: "Admin",
     last_name: "Deepersignals",
     role: "Admin",
-    token: "QWRtaW5Vc2Vy",
-  };
+    password: "password",
+  },
+  "user@deepersignals.com": {
+    first_name: "User",
+    last_name: "Deepersignals",
+    role: "User",
+    password: "password",
+  },
+};
 
-  // Встановлюємо заголовок Content-Type на application/json
-  res.setHeader("Content-Type", "application/json");
+app.post("/api/login", (req, res) => {
+  const { email, password } = req.body;
 
-  // Відправляємо відповідь у форматі JSON
-  res.json(responseData);
+  if (
+    !email ||
+    !password ||
+    !users[email] ||
+    users[email].password !== password
+  ) {
+    return res.status(401).json({ error: "Invalid credentials" });
+  }
+
+  const { first_name, last_name, role } = users[email];
+  const token = Buffer.from(`${email}:${password}`).toString("base64");
+
+  res.json({ first_name, last_name, role, token });
 });
 
 app.listen(PORT, () => {

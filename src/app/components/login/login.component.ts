@@ -6,20 +6,25 @@ import { ApiService } from '../../services/api.service';
   templateUrl: './login.component.html',
 })
 export class LoginComponent {
+  email = '';
+  password = '';
+  loggedIn = false;
+  errorMessage = '';
+
   constructor(private apiService: ApiService) {}
 
-  login(): void {
-    const email = 'user@deepersignals.com';
-    const password = 'password';
-
-    this.apiService.login(email, password).subscribe(
+  login() {
+    this.apiService.login(this.email, this.password).subscribe(
       (response) => {
-        console.log('Login successful:', response);
-        // Тут ви можете обробити відповідь від сервера
+        this.loggedIn = true;
+        this.errorMessage = '';
+        // Тут ви можете обробити отримані дані
+        console.log(response);
       },
       (error) => {
-        console.error('Login failed:', error);
-        // Тут ви можете обробити помилку від сервера
+        this.loggedIn = false;
+        this.errorMessage = 'Login failed: ' + error.error.error;
+        console.error(error);
       }
     );
   }

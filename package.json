@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "start-angular": "ng serve",
-    "start-node": "node server.js",
+    "start-node": "cd nodejs && node server.js",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
