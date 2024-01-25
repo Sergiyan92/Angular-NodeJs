@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { ApiService } from '../../services/api.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
   email = '';
@@ -11,15 +14,20 @@ export class LoginComponent {
   loggedIn = false;
   errorMessage = '';
 
-  constructor(private apiService: ApiService) {}
+  constructor(
+    private apiService: ApiService,
+    private authService: AuthService,
+    private router: Router
+  ) {}
 
   login() {
     this.apiService.login(this.email, this.password).subscribe(
       (response) => {
         this.loggedIn = true;
         this.errorMessage = '';
-        // Тут ви можете обробити отримані дані
+        this.authService.setToken(response.token);
         console.log(response);
+        this.router.navigate(['/dashboard']);
       },
       (error) => {
         this.loggedIn = false;

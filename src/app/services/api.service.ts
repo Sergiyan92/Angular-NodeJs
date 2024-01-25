@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ApiService {
-  private apiUrl = 'http://localhost:4200'; // Залиште це значення, оскільки ваш сервер Node.js працює на порту 4200
+  private apiUrl = 'http://localhost:4200';
 
   constructor(private http: HttpClient) {}
 
@@ -21,5 +21,12 @@ export class ApiService {
     return this.http.post(`${this.apiUrl}/api/login`, body, { headers });
   }
 
-  // Додайте інші методи для інших API шляхів за потребою
+  getUserAssessments(token: string): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'X-Token': token,
+    });
+
+    return this.http.get(`${this.apiUrl}/api/userassessments`, { headers });
+  }
 }
