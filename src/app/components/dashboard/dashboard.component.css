@@ -1,0 +1,59 @@
+/* dashboard.component.css */
+
+/* Загальні стилі для центрування контенту */
+.container {
+  display: flex;
+  justify-content: space-between;
+  margin: 50px;
+}
+
+/* Стилі для списку оцінок користувача */
+h2 {
+  color: #333;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 20px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* Стилі для навігаційного меню адміністратора */
+.admin-menu {
+  margin-top: 30px;
+}
+
+.admin-menu h2 {
+  color: #333;
+}
+
+.admin-menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.admin-menu li {
+  margin-bottom: 10px;
+}
+
+.admin-menu a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+/* Стилі для повідомлення про відсутність оцінок */
+.no-assessments {
+  color: #777;
+  margin-top: 20px;
+}

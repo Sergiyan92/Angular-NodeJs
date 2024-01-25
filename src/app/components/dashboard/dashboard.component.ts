@@ -11,14 +11,22 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class DashboardComponent implements OnInit {
   assessments: any[] = [];
+  isAdmin: boolean = false;
 
   constructor(
     private apiService: ApiService,
     private authService: AuthService
   ) {}
-
   ngOnInit(): void {
-    this.loadAssessments();
+    const token = this.authService.getToken();
+
+    if (token) {
+      this.loadAssessments();
+      this.checkAdminRole(); // Перевірте роль при завантаженні компонента
+    } else {
+      console.error('No token available');
+      // Обробити відсутність токена за необхідності
+    }
   }
 
   loadAssessments(): void {
@@ -37,5 +45,9 @@ export class DashboardComponent implements OnInit {
       console.error('No token available');
       // Обробити відсутність токена за необхідності
     }
+  }
+  checkAdminRole(): void {
+    const role = this.authService.getRole();
+    this.isAdmin = role === 'Admin';
   }
 }

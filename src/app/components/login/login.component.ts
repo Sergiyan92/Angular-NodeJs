@@ -25,7 +25,7 @@ export class LoginComponent {
       (response) => {
         this.loggedIn = true;
         this.errorMessage = '';
-        this.authService.setToken(response.token);
+        this.authService.setToken(response.token, response.role);
         console.log(response);
         this.router.navigate(['/dashboard']);
       },

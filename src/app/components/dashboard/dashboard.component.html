@@ -1,13 +1,24 @@
-<div *ngIf="assessments.length > 0">
-  <h2>Your Assessments</h2>
-  <ul>
-    <li *ngFor="let assessment of assessments">
-      <img [src]="assessment.image_url" alt="{{ assessment.name }}" />
-      <p>{{ assessment.name }}</p>
-      <p>Resolved by {{ assessment.users_resolved }} users</p>
-    </li>
-  </ul>
-</div>
-<div *ngIf="assessments.length === 0">
-  <p>No assessments available.</p>
+<!-- dashboard.component.html -->
+
+<div class="container">
+  <div *ngIf="assessments.length > 0">
+    <h2>Your Assessments</h2>
+    <ul>
+      <li *ngFor="let assessment of assessments">
+        <img [src]="assessment.image_url" alt="{{ assessment.name }}" />
+        <p>{{ assessment.name }}</p>
+        <p>Resolved by {{ assessment.users_resolved }} users</p>
+      </li>
+    </ul>
+  </div>
+
+  <div *ngIf="isAdmin" class="admin-menu">
+    <ul>
+      <li><a routerLink="/admin">Admin Section</a></li>
+    </ul>
+  </div>
+
+  <div *ngIf="assessments.length === 0" class="no-assessments">
+    <p>No assessments available.</p>
+  </div>
 </div>

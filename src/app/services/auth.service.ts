@@ -7,10 +7,13 @@ import { Injectable } from '@angular/core';
 })
 export class AuthService {
   private token: string | null = null;
+  private role: string | null = '';
 
-  setToken(token: string): void {
+  setToken(token: string, role: string): void {
     this.token = token;
+    this.role = role;
     localStorage.setItem('token', token);
+    localStorage.setItem('role', role);
   }
 
   getToken(): string | null {
@@ -18,6 +21,12 @@ export class AuthService {
       this.token = localStorage.getItem('token');
     }
     return this.token;
+  }
+  getRole(): string | null {
+    if (!this.role) {
+      this.role = localStorage.getItem('token');
+    }
+    return this.role;
   }
 
   clearToken(): void {
