@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 
 @Component({
-  selector: 'app-root',
-  template: ` <button (click)="login()">Login</button> `,
+  selector: 'app-login',
+  templateUrl: './login.component.html',
 })
-export class AppComponent {
+export class LoginComponent {
   constructor(private apiService: ApiService) {}
 
   login(): void {

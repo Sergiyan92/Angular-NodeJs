@@ -13,6 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            
             "outputPath": "dist/angular-node-js",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -63,7 +64,8 @@
               "browserTarget": "Angular-NodeJs:build:production"
             },
             "development": {
-              "browserTarget": "Angular-NodeJs:build:development"
+              "browserTarget": "Angular-NodeJs:build:development",
+              "port": 3000
             }
           },
           "defaultConfiguration": "development"
