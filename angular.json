@@ -61,11 +61,11 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "Angular-NodeJs:build:production"
+              "buildTarget": "Angular-NodeJs:build:production"
             },
             "development": {
-              "browserTarget": "Angular-NodeJs:build:development",
-              "port": 3000
+              "port": 3000,
+              "buildTarget": "Angular-NodeJs:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -73,7 +73,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Angular-NodeJs:build"
+            "buildTarget": "Angular-NodeJs:build"
           }
         },
         "test": {
