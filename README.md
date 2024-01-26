@@ -1,27 +1,59 @@
-# AngularNodeJs
+### Angular NodeJs Project
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.9.
+This project is a web application built with Angular on the front end and Node.js on the back end. It incorporates features such as user authentication, dashboard display, and assessment reports. The application allows users to log in, view their assessment reports, and visualize assessment data using graphs.
 
-## Development server
+#### Features:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **User Authentication:**
 
-## Code scaffolding
+  - Secure login functionality using tokens.
+  - User role management (Admin and User).
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Dashboard:**
 
-## Build
+  - User-specific dashboard displaying assessment reports.
+  - Admin dashboard with additional navigation for admin-specific actions.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- **Assessment Reports:**
 
-## Running unit tests
+  - Display of assessment reports on the user dashboard.
+  - Visualization of assessment data using graphs.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+#### How to Use:
 
-## Running end-to-end tests
+1. Log in with valid credentials.
+2. View your assessment reports on the dashboard.
+3. Click on a specific assessment report to see detailed graphs.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+#### Technologies Used:
 
-## Further help
+- **Angular:** Front-end framework for building dynamic web applications.
+- **Node.js:** Back-end runtime environment for server-side development.
+- **Express:** Web application framework for Node.js.
+- **API Integration:** Connects to internal APIs for user authentication and data retrieval.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+#### Installation:
+
+1. Clone the repository.
+2. Navigate to the project directory.
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+4. Run the Angular app:
+   ```bash
+   npm run start-angular
+   ```
+5. Run the Node.js server:
+   ```bash
+   npm run start-node
+   ```
+6. Open `http://localhost:3000/` in your browser.
+
+#### Acknowledgments:
+
+The application uses custom APIs for user authentication and fetching assessment data. Graph data is retrieved from the `/api/userassessments/graph` endpoint.
+
+#### Contributors:
+
+Serhii Kondratchuk

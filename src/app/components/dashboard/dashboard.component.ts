@@ -1,5 +1,3 @@
-// dashboard.component.ts
-
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { AuthService } from 'src/app/services/auth.service';
@@ -44,7 +42,6 @@ export class DashboardComponent implements OnInit {
       );
     } else {
       console.error('No token available');
-      // Обробити відсутність токена за необхідності
     }
   }
   checkAdminRole(): void {
