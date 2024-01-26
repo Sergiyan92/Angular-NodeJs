@@ -1,6 +1,7 @@
 {
   "name": "angular-node-js",
   "version": "0.0.0",
+  "homepage": "https://sergiyan92.github.io/Angular-NodeJs/",
   "scripts": {
     "ng": "ng",    
     "start-angular": "ng serve",
