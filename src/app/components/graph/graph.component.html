@@ -1,0 +1,22 @@
+<div *ngIf="graphData">
+  <div class="group">
+    <button (click)="goBack()">Back</button>
+    <button (click)="logout()" class="logout">LogOut</button>
+  </div>
+
+  <h2>Assessment Graph</h2>
+  <div [ngSwitch]="graphData.type">
+    <div *ngSwitchCase="'bar'">
+      <div *ngFor="let key of keys(graphData.data)">
+        <p>{{ key }}: {{ graphData.data[key] | number : "1.1-1" }}</p>
+      </div>
+    </div>
+    <div *ngSwitchDefault>
+      <p>Unsupported graph type</p>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!graphData">
+  <p>Loading graph data...</p>
+</div>

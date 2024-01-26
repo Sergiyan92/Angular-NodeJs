@@ -1,12 +1,12 @@
 const express = require("express");
-const cors = require("cors"); // Додайте цей рядок
+const cors = require("cors");
 const bodyParser = require("body-parser");
 
 const app = express();
 const PORT = process.env.PORT || 4200;
 
 app.use(bodyParser.json());
-app.use(cors()); // Додайте цей рядок
+app.use(cors());
 
 const users = {
   "admin@deepersignals.com": {
@@ -32,25 +32,40 @@ const userAssessments = [
       "https://d1cuxz3dnd9slg.cloudfront.net/assessments/Core+Values+-+Cover+Photo.jpg___2020-05-15-14-13-06.jpg",
   },
 ];
+const graphData = {
+  data: {
+    Agreeableness: 13.333333333333334,
+    Drive: 21.666666666666668,
+    Luck: 10,
+    Openess: 30,
+  },
+  type: "bar",
+};
 app.get("/api/userassessments", (req, res) => {
-  // Перевірте, чи передано дійсний токен
   const token = req.header("X-Token");
   if (!token) {
     return res.status(401).json({ error: "Unauthorized. Token is missing." });
   }
-
-  // Декодуйте та перевірте токен (ваша реалізація може бути складнішою)
   const decodedToken = Buffer.from(token, "base64").toString("utf-8");
   const [email, password] = decodedToken.split(":");
   if (!users[email] || users[email].password !== password) {
     return res.status(401).json({ error: "Unauthorized. Invalid token." });
   }
 
-  // Тут видаляйте іншу інформацію про користувача, оскільки вона вже включена в токен
   const { first_name, last_name, role } = users[email];
 
-  // Відправте список оцінок користувача
   res.json(userAssessments);
+});
+app.get("/api/userassessments/graph", (req, res) => {
+  // Отримання параметра id з запиту
+  const assessmentId = req.query.id;
+
+  // Ваш код для обробки запиту та надсилання відповіді із графіком
+  // Наприклад, тут ви можете використати assessmentId для отримання даних графіка
+
+  // Приклад відповіді:
+
+  res.json(graphData);
 });
 app.post("/api/login", (req, res) => {
   const { email, password } = req.body;

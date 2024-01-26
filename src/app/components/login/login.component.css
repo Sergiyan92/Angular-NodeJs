@@ -32,26 +32,25 @@ button {
   cursor: pointer;
   margin: auto;
   display: block;
+}
+button:hover {
+  background-color: #45a049;
+}
 
-  button:hover {
-    background-color: #45a049;
-  }
+div.message {
+  margin-top: 15px;
+  padding: 10px;
+  border-radius: 4px;
+}
 
-  div.message {
-    margin-top: 15px;
-    padding: 10px;
-    border-radius: 4px;
-  }
+div.success {
+  background-color: #dff0d8;
+  color: #3c763d;
+  border: 1px solid #d6e9c6;
+}
 
-  div.success {
-    background-color: #dff0d8;
-    color: #3c763d;
-    border: 1px solid #d6e9c6;
-  }
-
-  div.error {
-    background-color: #f2dede;
-    color: #a94442;
-    border: 1px solid #ebccd1;
-  }
+div.error {
+  background-color: #f2dede;
+  color: #a94442;
+  border: 1px solid #ebccd1;
 }

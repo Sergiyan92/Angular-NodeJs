@@ -31,10 +31,15 @@ export class AuthService {
 
   clearToken(): void {
     this.token = null;
+    this.role = null;
     localStorage.removeItem('token');
+    localStorage.removeItem('role');
   }
 
   isLoggedIn(): boolean {
     return !!this.getToken();
+  }
+  logout(): void {
+    this.clearToken();
   }
 }

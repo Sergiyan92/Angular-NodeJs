@@ -1,7 +1,7 @@
 // api.service.ts
 
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -28,5 +28,18 @@ export class ApiService {
     });
 
     return this.http.get(`${this.apiUrl}/api/userassessments`, { headers });
+  }
+  getUserAssessmentGraph(token: string, assessmentId: number): Observable<any> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'X-Token': token,
+    });
+
+    const params = new HttpParams().set('id', assessmentId.toString());
+
+    return this.http.get(`${this.apiUrl}/api/userassessments/graph`, {
+      headers,
+      params,
+    });
   }
 }

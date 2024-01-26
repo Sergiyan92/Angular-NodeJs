@@ -8,8 +8,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { GraphComponent } from './components/graph/graph.component';
 @NgModule({
-  declarations: [AppComponent, LoginComponent, DashboardComponent, AdminComponent],
+  declarations: [AppComponent, LoginComponent, DashboardComponent, AdminComponent, GraphComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
