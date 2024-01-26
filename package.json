@@ -6,6 +6,7 @@
     "start-angular": "ng serve",
     "start-node": "cd nodejs && node server.js",
     "build": "ng build",
+    "deploy-gh-pages": "ng build --configuration production --base-href https://sergiyan92.github.io/Angular-NodeJs/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
