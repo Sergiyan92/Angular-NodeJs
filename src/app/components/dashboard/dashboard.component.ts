@@ -24,10 +24,9 @@ export class DashboardComponent implements OnInit {
 
     if (token) {
       this.loadAssessments();
-      this.checkAdminRole(); // Перевірте роль при завантаженні компонента
+      this.checkAdminRole();
     } else {
       console.error('No token available');
-      // Обробити відсутність токена за необхідності
     }
   }
 

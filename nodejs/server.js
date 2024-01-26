@@ -8,6 +8,21 @@ const PORT = process.env.PORT || 4200;
 app.use(bodyParser.json());
 app.use(cors());
 
+const peoples = [
+  {
+    id: 1,
+    email: "admin@example.com",
+    first_name: "Admin",
+    last_name: "Deepersignals",
+  },
+  {
+    id: 2,
+    email: "user@deepersignals.com",
+    first_name: "User",
+    last_name: "Deepersignals",
+  },
+];
+
 const users = {
   "admin@deepersignals.com": {
     first_name: "Admin",
@@ -41,6 +56,9 @@ const graphData = {
   },
   type: "bar",
 };
+app.get("/api/users", (req, res) => {
+  res.json(peoples);
+});
 app.get("/api/userassessments", (req, res) => {
   const token = req.header("X-Token");
   if (!token) {
@@ -57,14 +75,6 @@ app.get("/api/userassessments", (req, res) => {
   res.json(userAssessments);
 });
 app.get("/api/userassessments/graph", (req, res) => {
-  // Отримання параметра id з запиту
-  const assessmentId = req.query.id;
-
-  // Ваш код для обробки запиту та надсилання відповіді із графіком
-  // Наприклад, тут ви можете використати assessmentId для отримання даних графіка
-
-  // Приклад відповіді:
-
   res.json(graphData);
 });
 app.post("/api/login", (req, res) => {

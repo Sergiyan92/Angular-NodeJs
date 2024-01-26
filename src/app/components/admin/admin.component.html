@@ -1,1 +1,23 @@
-<p>admin works!</p>
+<div>
+  <div class="group">
+    <button (click)="goBack()">Back</button>
+    <button (click)="logout()" class="logout">LogOut</button>
+  </div>
+  <h2>Admin Section - User Management</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.email }}</td>
+        <td>{{ user.first_name }}</td>
+        <td>{{ user.last_name }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
